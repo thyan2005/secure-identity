@@ -1,12 +1,5 @@
 # BÁO CÁO BÀI LAB 01: SECURE IDENTITY, SESSION & AUTHORIZATION
 
-## 1. THÔNG TIN SINH VIÊN
-- **Họ và tên:** Nguyễn Hoàng Thy Ân
-- **MSSV:** 23150371
-- **Môn học:** An Toàn Thương Mại Điện Tử
-
----
-
 ## 2. KIẾN TRÚC & CÁC QUYẾT ĐỊNH BẢO MẬT (Security Decisions)
 
 ### 2.1. Xác thực 2 bước (TOTP RFC 6238) & Cửa sổ trôi thời gian
