@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "LAB 01 - Secure Identity & Session",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Login Step 1 (CSKH)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"cskh01\",\n  \"password\": \"Password@123\"\n}"
+        },
+        "url": "http://localhost:8000/api/auth/login-step1"
+      }
+    },
+    {
+      "name": "2. Login Step 2 (TOTP)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"mfa_ticket\": \"<PASTE_MFA_TICKET_HERE>\",\n  \"totp_code\": \"<PASTE_6_DIGIT_OTP>\"\n}"
+        },
+        "url": "http://localhost:8000/api/auth/login-step2"
+      }
+    },
+    {
+      "name": "3. Create Refund Request (CSKH)",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 850000,\n  \"reason\": \"Hàng vỡ lúc vận chuyển\",\n  \"bank_account\": \"1029384756102\"\n}"
+        },
+        "url": "http://localhost:8000/api/refund/create"
+      }
+    },
+    {
+      "name": "4. Approve Refund (Kế toán)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/refund/<REFUND_ID>/approve"
+      }
+    },
+    {
+      "name": "5. Logout (Revoke Session)",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8000/api/auth/logout"
+      }
+    }
+  ]
+}
